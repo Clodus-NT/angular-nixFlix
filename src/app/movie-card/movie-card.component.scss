@@ -1,0 +1,31 @@
+$bgColor: #121212;
+$font: rgb(227, 227, 227);
+
+div {
+
+}
+
+mat-card {
+  background-color: $bgColor;
+  margin: 15px;
+  padding: 15px 10px;
+  color: $font;
+}
+
+mat-card-title {
+  
+}
+
+mat-card-subtitle {
+  color: $font;
+}
+
+img {
+  width: 250px;
+  height: 350px;
+  object-fit: contain;
+}
+
+button {
+  color: $font;
+}
