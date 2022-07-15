@@ -2,18 +2,20 @@ $bgColor: #121212;
 $font: rgb(227, 227, 227);
 
 div {
-
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 mat-card {
   background-color: $bgColor;
   margin: 15px;
-  padding: 15px 10px;
   color: $font;
-}
-
-mat-card-title {
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 mat-card-subtitle {
