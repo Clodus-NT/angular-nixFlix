@@ -1,0 +1,15 @@
+$containerBgColor: #222222;
+$bgColor: #121212;
+$font: rgb(227, 227, 227);
+
+mat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background-color: $bgColor;
+  color: $font;
+}
