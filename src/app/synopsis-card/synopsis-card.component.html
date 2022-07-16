@@ -1,1 +1,15 @@
-<p>synopsis-card works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{data.Title}}</mat-card-title>
+  </mat-card-header>
+  <img src={{data.ImagePath}} alt={{data.Title}}/>
+  <mat-card-content>{{data.Description}}</mat-card-content>
+  <mat-card-actions>
+    <button 
+      mat-stroked-button
+      mat-dialog-close
+    >
+      Close
+    </button>
+  </mat-card-actions>
+</mat-card>

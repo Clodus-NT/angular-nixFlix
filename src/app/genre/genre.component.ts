@@ -2,19 +2,17 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-synopsis-card',
-  templateUrl: './synopsis-card.component.html',
-  styleUrls: ['./synopsis-card.component.scss']
+  selector: 'app-genre',
+  templateUrl: './genre.component.html',
+  styleUrls: ['./genre.component.scss']
 })
-export class SynopsisCardComponent implements OnInit {
+export class GenreComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
-      Title: string,
-      ImagePath: any,
+      Name: string,
       Description: string,
-      Genre: string,
     }
   ) { }
 

@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 
 //Declaring the api url that will provide data for the client app
 const apiUrl = 'https://nixflix-93.herokuapp.com/';
+//Grab token and user from local storage
 const token = localStorage.getItem('token');
 const username = localStorage.getItem('user');
 
@@ -115,17 +116,6 @@ export class FetchApiDataService {
       catchError(this.handleError)
     );
   }
-  // public addFavoriteMovies(MovieID: string): Observable<any> {
-  //   return this.http
-  //   .post(apiUrl + `/users/${username}/movies/${MovieID}`, null, {
-  //     headers: new HttpHeaders({
-  //       Authorization: 'Bearer ' + token,
-  //     })
-  //   }).pipe(
-  //     map(this.extractResponseData),
-  //     catchError(this.handleError)
-  //   );
-  // }
 
   /* DELETE FAVORITE */
   public deleteFavoriteMovies(MovieID: string): Observable<any> {
