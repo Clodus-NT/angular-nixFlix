@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DirectorComponent } from '../director/director.component';
 import { GenreComponent } from '../genre/genre.component';
 import { SynopsisCardComponent } from '../synopsis-card/synopsis-card.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AnonymousSubject } from 'rxjs/internal/Subject';
 
@@ -16,17 +17,28 @@ import { AnonymousSubject } from 'rxjs/internal/Subject';
 
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];
-  favoriteMovies: any[] = [];
+  user: any = {};
+  currentUser: any = null;
+  currentFavs: any = null;
   
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
+    public router: Router,
     public snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
     this.getMovies();
-    this.getFavorites();
+    this.getCurrentUser();
+  }
+
+  getCurrentUser(): void {
+    const username = localStorage.getItem('user');
+    this.fetchApiData.getUser().subscribe((resp: any) => {
+      const currentUser = resp.Username;
+      const currentFavs = resp.FavoriteMovies;
+    })
   }
 
   getMovies(): void {
@@ -37,9 +49,21 @@ export class MovieCardComponent implements OnInit {
     })
   }
   
-  getFavorites(): void {
-    this.fetchApiData.getFavoriteMovies().subscribe((resp: any) => {
-      this.favoriteMovies = resp;
+  addFavorite(id: string, Title: string): void {
+    this.fetchApiData.addFavoriteMovies(id).subscribe((resp: any) => {
+      this.snackBar.open('You\'ve added ${Title} to your favorites.', 'OK', {
+        verticalPosition: 'top'
+      });
+      console.log('movie_comp: ', resp)
+      this.ngOnInit();
+    })
+  }
+
+  removeFavorite(id: string, Title: string): void {
+    this.fetchApiData.deleteFavoriteMovies(id).subscribe((resp: any) => {
+      this.snackBar.open('You\'ve removed ${Title} from your favorites.', 'OK', {
+        verticalPosition: 'top'
+      })
     })
   }
 

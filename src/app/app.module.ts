@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { FormsModule } from '@angular/forms';
 
@@ -23,6 +24,7 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { SynopsisCardComponent } from './synopsis-card/synopsis-card.component';
 import { GenreComponent } from './genre/genre.component';
 import { DirectorComponent } from './director/director.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -39,7 +41,8 @@ const appRoutes: Routes = [
     WelcomePageComponent,
     SynopsisCardComponent,
     GenreComponent,
-    DirectorComponent
+    DirectorComponent,
+    NavbarComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -55,6 +58,7 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatSnackBarModule,
     MatIconModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
