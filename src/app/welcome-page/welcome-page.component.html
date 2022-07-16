@@ -1,21 +1,23 @@
-<div class="main-page">
-  <h1>
-    Welcome to myFlix!
-  </h1>
-  <button 
-    mat-raised-button 
-    (click)="openUserRegistrationDialog()" 
-    style="margin-right: 10px;" color="primary"
-  >
-    Sign up
-  </button>
-
-  <button 
-    mat-raised-button 
-    (click)="openUserLoginDialog()" 
-    style="margin-right: 10px;" 
-    color="primary"
-  >
-    Login
-  </button>
+<div>
+  <div class="main-page">
+    <h1>Welcome to nixFlix!</h1>
+    <mat-card>
+      <!-- <mat-card-title>Sign Up or Login</mat-card-title> -->
+      <button 
+        mat-raised-button 
+        (click)="openUserLoginDialog()" 
+        style="margin-right: 10px;" 
+      >
+        Login
+      </button>
+  
+      <button 
+        mat-raised-button 
+        (click)="openUserRegistrationDialog()" 
+        style="margin-right: 10px;"
+      >
+        Sign up
+      </button>
+    </mat-card>
+  </div>
 </div>

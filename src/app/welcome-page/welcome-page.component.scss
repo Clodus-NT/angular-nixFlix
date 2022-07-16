@@ -1,0 +1,39 @@
+$containerBgColor: #222222;
+$bgColor: #121212;
+$font: rgb(227, 227, 227);
+
+div {
+  width: 50%;
+  // background-color: $bgColor;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $font;
+  box-sizing: border-box;
+  border-radius: 5%;
+}
+
+h1 {
+  font-size: xx-large;
+}
+
+mat-card {
+  width: 60%;
+  background-color: $bgColor;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
+
+mat-card-title {
+  color: $font;
+}
+
+button {
+  color: $bgColor
+}
