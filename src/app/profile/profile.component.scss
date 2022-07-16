@@ -1,0 +1,65 @@
+$containerBgColor: #222222;
+$bgColor: #121212;
+$font: rgb(227, 227, 227);
+
+.mat-card {
+  background-color: $font;
+  color: $font;
+  margin-top: 80px;
+  margin: 15px;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+mat-card-header {
+  color: $bgColor;
+  font-size: xx-large;
+  margin: 15px;
+  align-self: center;
+}
+
+mat-form-field {
+  // color: $font;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-card-subtitle {
+  color: $font;
+  font-size: large;
+}
+
+.profile-container {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fav-container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $font;
+}
+
+.fav-card {
+  background-color: $font;
+  color: $font;
+  margin-top: 80px;
+  margin: 15px;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}

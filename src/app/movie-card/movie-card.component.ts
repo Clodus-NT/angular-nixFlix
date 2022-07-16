@@ -7,7 +7,6 @@ import { GenreComponent } from '../genre/genre.component';
 import { SynopsisCardComponent } from '../synopsis-card/synopsis-card.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AnonymousSubject } from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'app-movie-card',
