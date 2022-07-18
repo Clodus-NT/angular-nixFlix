@@ -1,12 +1,14 @@
 <div>
   <button 
     mat-button aria="button to go to home page"
+    (click)="goHome()"
   >
     <mat-icon>home</mat-icon>
   </button>
 
   <button 
     mat-button aria="button to go to profile page"
+    (click)="goToProfile()"
   >
     <mat-icon>account_circle</mat-icon>
   </button>

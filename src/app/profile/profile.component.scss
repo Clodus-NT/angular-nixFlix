@@ -2,7 +2,7 @@ $containerBgColor: #222222;
 $bgColor: #121212;
 $font: rgb(227, 227, 227);
 
-.mat-card {
+.profile-card {
   background-color: $font;
   color: $font;
   margin-top: 80px;
@@ -15,11 +15,15 @@ $font: rgb(227, 227, 227);
   width: 50%;
 }
 
-mat-card-header {
+.profile-header {
   color: $bgColor;
   font-size: xx-large;
   margin: 15px;
   align-self: center;
+}
+
+.profile-title {
+  color: $bgColor;
 }
 
 mat-form-field {
@@ -30,20 +34,20 @@ mat-form-field {
   justify-content: center;
 }
 
-mat-card-subtitle {
-  color: $font;
-  font-size: large;
-}
+// mat-card-subtitle {
+//   color: $font;
+//   font-size: large;
+// }
 
 .profile-container {
-  margin: auto;
+  margin-top: auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .fav-container {
-  margin: auto;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,15 +55,35 @@ mat-card-subtitle {
   color: $font;
 }
 
-.fav-card {
-  background-color: $font;
-  color: $font;
-  margin-top: 80px;
-  margin: 15px;
-  margin-top: 80px;
+.fav-secondary-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  color: $font;
+
+}
+
+mat-card {
+  background-color: $bgColor;
+  margin: 25px;
+  color: $font;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-card-subtitle {
+  color: $font;
+}
+
+img {
+  width: 250px;
+  height: 350px;
+  object-fit: contain;
+}
+
+button {
+  color: $font;
 }

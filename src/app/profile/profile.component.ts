@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
   user: any = {};
   movies: any[] = [];
   favoriteMovies: any[] = [];
-  favs: any = null;
+  favs: any[] = [];
   displayElements: boolean = false;
 
   @Input() userData = {
@@ -37,6 +37,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserProfile();
+    // this.retrieveFavorites();
   }
 
   // GET USER (and push favorites to movies array)
@@ -44,17 +45,59 @@ export class ProfileComponent implements OnInit {
     const user = localStorage.getItem('user');
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
-      //Get movies and push all favs to movies array
       this.fetchApiData.getAllMovies().subscribe((resp: any) => {
         this.movies = resp;
         this.movies.forEach((movie: any) => {
           if (this.user.FavoriteMovies.includes(movie._id)) {
-            this.favs.psuh(movie);
+            this.favs.push(movie);
             this.displayElements = true;
           }
-        })
-      })
+        });
+      });
     })
   }
+
+  //DELETE FAVORITE MOVIE
+  removeFav(id: string): void {
+    this.fetchApiData.deleteFavoriteMovies(id).subscribe((res: any) => {
+      // this.snackBar.open('Removed from Favorites', 'OK', {
+      //   duration: 2000,
+      // });
+      this.ngOnInit();
+      window.location.reload();
+      return this.favs;
+    })
+  }
+
+  openSynopsis(title: string, impagePath: any, description: string,): void {
+    this.dialog.open(SynopsisCardComponent, {
+      data: {
+        Title: title,
+        ImagePath: impagePath,
+        Description: description,
+      },
+      width: '500px',
+    })
+  }
+
+  openDirector(name: string, bio: string): void {
+    this.dialog.open(DirectorComponent, {
+      data: {
+        Name: name,
+        Bio: bio
+      },
+      width: '500px',
+    });
+  }
+
+  openGenre(name: string, description: string): void {
+    this.dialog.open(GenreComponent, {
+      data: {
+        Name: name,
+        Description: description
+      },
+      width: '500px',
+    });
+  }  
 
 }

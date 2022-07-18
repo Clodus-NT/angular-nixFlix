@@ -109,7 +109,7 @@ export class FetchApiDataService {
     console.log('Movie: ', MovieID)
     console.log('Token: ', token)
     return this.http
-      .post(apiUrl + `users/${username}/movies/${MovieID}`, {
+      .post(apiUrl + `users/${username}/movies/${MovieID}`, {}, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         })
