@@ -32,6 +32,11 @@ export class MovieCardComponent implements OnInit {
     this.getCurrentUser();
   }
 
+  /**
+   * Retrieves current user object.
+   * @function getCurrentUser
+   * @returns current user data
+   */
   getCurrentUser(): void {
     const username = localStorage.getItem('user');
     this.fetchApiData.getUser().subscribe((resp: any) => {
@@ -40,6 +45,11 @@ export class MovieCardComponent implements OnInit {
     })
   }
 
+  /**
+   * Retrieves movie object.
+   * @function getMovies
+   * @returns movie data
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -48,6 +58,14 @@ export class MovieCardComponent implements OnInit {
     })
   }
   
+  /**
+   * Adds selected movie to current user object.
+   * Displays message that confirms the movie has been added to current user's favorites.
+   * @param id {string}
+   * @param Title {string}
+   * @function addFavorite
+   * @returns movie object
+   */
   addFavorite(id: string, Title: string): void {
     this.fetchApiData.addFavoriteMovies(id).subscribe((resp: any) => {
       this.snackBar.open('You\'ve added ' + `${Title}` +  ' to your favorites.', 'OK', {
@@ -58,6 +76,13 @@ export class MovieCardComponent implements OnInit {
     })
   }
 
+  /**
+   * Removes a movie from current user's favorites list.
+   * Displays a message confirming movie has been removed from current user's favorites.
+   * @param id {string}
+   * @function removeFav
+   * @returns current favorites
+   */
   removeFavorite(id: string, Title: string): void {
     this.fetchApiData.deleteFavoriteMovies(id).subscribe((resp: any) => {
       this.snackBar.open('Remove from Favorites.', 'OK', {
@@ -66,6 +91,14 @@ export class MovieCardComponent implements OnInit {
     })
   }
 
+  /**
+   * Opens a dialog box when user clicks on synopsis button on movie card.
+   * Displays synopsis of the movie.
+   * @param title {string}
+   * @param impagePath {any}
+   * @param description {string}
+   * @function openSynopsis
+   */
   openSynopsis(title: string, impagePath: any, description: string,): void {
     this.dialog.open(SynopsisCardComponent, {
       data: {
@@ -77,6 +110,13 @@ export class MovieCardComponent implements OnInit {
     })
   }
 
+  /**
+   * Opens dialog box when user clicks director button on movie card.
+   * Displays the director's bio.
+   * @param name {string}
+   * @param bio {string}
+   * @function openDirector
+   */
   openDirector(name: string, bio: string): void {
     this.dialog.open(DirectorComponent, {
       data: {
@@ -87,6 +127,13 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * Opens dialog box when user clicks on genre button on movie card.
+   * Displays genre info.
+   * @param name {string}
+   * @param description {string}
+   * @function openGenre
+   */
   openGenre(name: string, description: string): void {
     this.dialog.open(GenreComponent, {
       data: {

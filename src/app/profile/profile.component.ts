@@ -40,7 +40,15 @@ export class ProfileComponent implements OnInit {
     // this.retrieveFavorites();
   }
 
-  // GET USER (and push favorites to movies array)
+  /**
+   * Retrieves current user data.
+   * Retrieves movie data.
+   * Checks to see if any of the movies are in the user object.
+   * Displays any favorite that is in the user object.
+   * @function getUserProfile
+   * @returns user data
+   * @returns movie data
+   */
   getUserProfile(): void {
     const user = localStorage.getItem('user');
     this.fetchApiData.getUser().subscribe((resp: any) => {
@@ -57,18 +65,29 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  //DELETE FAVORITE MOVIE
+  /**
+   * Removes a movie from current user's favorites list.
+   * Reloads the page to make sure the removed movie is no longer
+   * @param id {string}
+   * @function removeFav
+   * @returns current favorites
+   */
   removeFav(id: string): void {
     this.fetchApiData.deleteFavoriteMovies(id).subscribe((res: any) => {
-      // this.snackBar.open('Removed from Favorites', 'OK', {
-      //   duration: 2000,
-      // });
       this.ngOnInit();
       window.location.reload();
       return this.favs;
     })
   }
 
+  /**
+   * Opens a dialog box when user clicks on synopsis button on movie card.
+   * Displays synopsis of the movie.
+   * @param title {string}
+   * @param impagePath {any}
+   * @param description {string}
+   * @function openSynopsis
+   */
   openSynopsis(title: string, impagePath: any, description: string,): void {
     this.dialog.open(SynopsisCardComponent, {
       data: {
@@ -80,6 +99,13 @@ export class ProfileComponent implements OnInit {
     })
   }
 
+  /**
+   * Opens dialog box when user clicks director button on movie card.
+   * Displays the director's bio.
+   * @param name {string}
+   * @param bio {string}
+   * @function openDirector
+   */
   openDirector(name: string, bio: string): void {
     this.dialog.open(DirectorComponent, {
       data: {
@@ -90,6 +116,13 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Opens dialog box when user clicks on genre button on movie card.
+   * Displays genre info.
+   * @param name {string}
+   * @param description {string}
+   * @function openGenre
+   */
   openGenre(name: string, description: string): void {
     this.dialog.open(GenreComponent, {
       data: {
