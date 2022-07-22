@@ -20,7 +20,12 @@ export class FetchApiDataService {
   constructor(private http: HttpClient) {
   }
  
-  /* REGISTRATION */
+  /**
+   * Calls an API endpoint to register new user.
+   * @param userDetails {any}
+   * @function userRegistration
+   * @returns new user object
+   */
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http
@@ -30,7 +35,12 @@ export class FetchApiDataService {
       );
   }
 
-  /* LOGIN */
+  /**
+   * Calls an API endpoint to login the user.
+   * @param userDetails {any}
+   * @function userLogin
+   * @returns user data object
+   */
   public userLogin(userDetails: any): Observable<any> {
     return this.http
       .post(apiUrl + 'login', userDetails)
@@ -39,7 +49,11 @@ export class FetchApiDataService {
       );
   }
 
-  /* ALL MOVIES */
+  /**
+   * Calls an API endpoint to retrieve all movie objects in the database.
+   * @function getAllMovies
+   * @returns all movie data objects
+   */
   getAllMovies(): Observable<any> {
     return this.http
     .get(apiUrl + 'movies', {
@@ -52,7 +66,11 @@ export class FetchApiDataService {
     );
   }
 
-  /* SINGLE MOVIE */
+  /**
+   * Calls an API endpoint to retrieve a selected movie's data object.
+   * @function getSingleMovie
+   * @returns a single movie data object
+   */
   getSingleMovie(): Observable<any> {
     return this.http
     .get(apiUrl + 'movies/:title', {
@@ -65,7 +83,10 @@ export class FetchApiDataService {
     );
   }
 
-  /* DIRECTOR */
+  /**
+   * Calls an API endpoint that retrieves the director data from the movie object
+   * @returns the director data
+   */
   getDirector(): Observable<any> {
     return this.http
     .get(apiUrl + '/movies/directors/:directorName', {
@@ -78,7 +99,11 @@ export class FetchApiDataService {
     );
   }
 
-  /* GENRE */
+  /**
+   * Calls an API endpoint that retrieves the genre data from the movie object.
+   * @function getGenre
+   * @returns the genre data
+   */
   getGenre(): Observable<any> {
     return this.http
     .get(apiUrl + '/movies/genre/:genreName', {
@@ -91,7 +116,11 @@ export class FetchApiDataService {
     );
   }
 
-  /* FAVORITE MOVIE */
+  /**
+   * Calls an API endpoint to retrieve current user's favorite movies.
+   * @function getFavoriteMovies
+   * @returns current user's favorite movies
+   */
   getFavoriteMovies(): Observable<any> {
     return this.http
     .get(apiUrl + `/users/${username}`, {
@@ -104,7 +133,12 @@ export class FetchApiDataService {
     );
   }
 
-  /* ADD FAVORITE */
+  /**
+   * Calls an API endpoint that posts the selected movie to the current user object.
+   * @param MovieID {string}
+   * @function addFavoriteMovies
+   * @returns updated favorite movies that has been posted to user object
+   */
   public addFavoriteMovies(MovieID: string): Observable<any> {
     console.log('Movie: ', MovieID)
     console.log('Token: ', token)
@@ -119,7 +153,12 @@ export class FetchApiDataService {
       );
   }
 
-  /* DELETE FAVORITE */
+  /**
+   * Calls an API endpoint that deletes a favorited movie from the user object
+   * @param MovieID {string}
+   * @function deleteFavoriteMovies
+   * @returns updated favorite movies from the user object
+   */
   public deleteFavoriteMovies(MovieID: string): Observable<any> {
     return this.http
       .delete(apiUrl + `users/${username}/movies/${MovieID}`, {
@@ -132,7 +171,11 @@ export class FetchApiDataService {
       );
   }
 
-  /* USER */
+  /**
+   * Calls an API endpoint the retrieves the current user's data object.
+   * @function getUser
+   * @returns current user object
+   */
   getUser(): Observable<any> {
     return this.http
     .get(apiUrl + `users/${username}`, {
@@ -144,7 +187,11 @@ export class FetchApiDataService {
       catchError(this.handleError));
   }
 
-  /* EDIT USER */
+  /**
+   * Calls an API endpoint that allows current user to update their profile info.
+   * @param userData {object}
+   * @returns updated user object
+   */
   editUser(userData: object): Observable<any> {
     return this.http
     .put(apiUrl + `users/${username}`, userData, {
@@ -155,7 +202,11 @@ export class FetchApiDataService {
     .pipe(catchError(this.handleError));
   }
 
-  /* DELETE USER */
+  /**
+   * Calls and API endpoint the allows the current user to delete their profile.
+   * @function deleteUser
+   * @returns delete status
+   */
   deleteUser(): Observable<any> {
     return this.http
     .delete(apiUrl + `users/${username}`, {
@@ -175,6 +226,7 @@ export class FetchApiDataService {
     return body || { };
   }
 
+  //Error Handling function the is called within the above functions.
   private handleError(error: HttpErrorResponse): any {
       if (error.error instanceof ErrorEvent) {
       console.error('Some error occurred:', error.error.message);
