@@ -2,12 +2,15 @@ $containerBgColor: #222222;
 $bgColor: #121212;
 $font: rgb(227, 227, 227);
 
+.profile-container {
+  width: 100vw;
+}
+
 .profile-card {
   background-color: $font;
   color: $font;
   margin-top: 80px;
   margin: 15px;
-  margin-top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
