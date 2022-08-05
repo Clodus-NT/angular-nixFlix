@@ -30,7 +30,7 @@
               required
             >
           </mat-form-field>
-          <!-- <mat-form-field>
+          <mat-form-field>
             <input
               matInput
               [(ngModel)]="userData.Email"
@@ -39,7 +39,7 @@
               name="Email"
               required
             >
-          </mat-form-field> -->
+          </mat-form-field>
           <mat-form-field>
             <input
               matInput
@@ -52,6 +52,13 @@
         </form>
       </mat-card-content>
       <mat-card-actions>
+        <button
+          class="edit-button"
+          mat-raised-button
+          (click)="updateProfile()"
+        >
+          Update
+        </button>
       </mat-card-actions>
     </mat-card>
   </div>

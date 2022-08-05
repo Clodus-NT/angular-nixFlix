@@ -78,12 +78,17 @@ mat-card-subtitle {
   color: $font;
 }
 
+input {
+  color: black;
+}
+
 img {
   width: 250px;
   height: 350px;
   object-fit: contain;
 }
 
-button {
+.edit-button {
+  background-color: $containerBgColor;
   color: $font;
 }

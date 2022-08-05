@@ -37,7 +37,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserProfile();
-    // this.retrieveFavorites();
   }
 
   /**
@@ -65,6 +64,7 @@ export class ProfileComponent implements OnInit {
     })
   }
 
+  
   /**
    * Removes a movie from current user's favorites list.
    * Reloads the page to make sure the removed movie is no longer
@@ -131,6 +131,20 @@ export class ProfileComponent implements OnInit {
       },
       width: '500px',
     });
-  }  
+  }
+
+  updateProfile(): void {
+    this.fetchApiData.editUser(this.userData).subscribe((response) => {
+      console.log('updated user: ', response);
+      if(this.userData.Username || this.userData.Password) {
+        localStorage.clear();
+        this.router.navigate(['welcome']);
+        this.snackBar.open('Please Login with your new credentials', 'OK', {
+          duration: 2000,
+          verticalPosition: 'top'
+        })
+      }
+    })
+  }
 
 }

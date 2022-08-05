@@ -26,7 +26,6 @@ import { GenreComponent } from './genre/genre.component';
 import { DirectorComponent } from './director/director.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
-import { FavoritesComponent } from './favorites/favorites.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -47,7 +46,6 @@ const appRoutes: Routes = [
     DirectorComponent,
     NavbarComponent,
     ProfileComponent,
-    FavoritesComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
