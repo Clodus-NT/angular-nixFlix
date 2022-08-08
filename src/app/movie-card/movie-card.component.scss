@@ -24,11 +24,12 @@ mat-card-subtitle {
 }
 
 img {
-  width: 250px;
-  height: 350px;
+  max-width: 250px;
+  max-height: 350px;
   object-fit: contain;
 }
 
 button {
   color: $font;
+  padding: 0;
 }
